@@ -1,0 +1,38 @@
+{
+  "name": "potara/correios",
+  "description": "Postal service consultation package, zip code, shipping and tracking price",
+  "type": "library",
+  "license": "MIT",
+  "homepage": "https://potara.org/",
+  "keywords": [
+    "correios",
+    "api",
+    "frete",
+    "cep",
+    "endereço",
+    "endereco",
+    "preco"
+  ],
+  "authors": [
+    {
+      "name": "Bruno Lima",
+      "email": "eu@brunolima.me",
+      "homepage": "https://brunolima.me"
+    }
+  ],
+  "minimum-stability": "stable",
+  "require": {
+    "php": "^7.2.5",
+    "ext-json": "*",
+    "guzzlehttp/guzzle": "7.0.*"
+  },
+  "config": {
+    "optimize-autoloader": true,
+    "preferred-install": "dist"
+  },
+  "autoload": {
+    "psr-4": {
+      "Potara\\": "src/"
+    }
+  }
+}
