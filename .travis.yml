@@ -1,3 +1,5 @@
+sudo: false
+
 language: php
 
 php:
@@ -6,18 +8,24 @@ php:
   - 7.1
   - 7.2
 
+install:
+  - composer self-update
+  - composer install
+  - composer require satooshi/php-coveralls:~1.0@stable
+
 env:
   matrix:
     - COMPOSER_FLAGS="--prefer-lowest"
     - COMPOSER_FLAGS=""
 
 before_script:
+  - mkdir -p build/logs # Create a folder to store clover files
   - travis_retry composer self-update
   - travis_retry composer update ${COMPOSER_FLAGS} --no-interaction --prefer-source
   - "curl -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/fossas/fossa-cli/master/install.sh | sudo bash"
 
 script:
-  - vendor/bin/phpunit --coverage-clover coverage.xml
+  - vendor/bin/phpunit --coverage-clover build/logs/clover.xml --test-suffix .php --colors --report-useless-tests tests/test.php
 
 after_success:
-  - bash <(curl -s https://codecov.io/bash)
+  - sh -c 'then php vendor/bin/coveralls -v'
