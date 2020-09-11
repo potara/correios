@@ -36,6 +36,11 @@
       "Potara\\": "src/"
     }
   },
+  "autoload-dev": {
+    "psr-4": {
+      "Potara\\Correios\\Test\\": "tests"
+    }
+  },
   "require-dev": {
     "phpunit/phpunit": "5.7.*"
   }

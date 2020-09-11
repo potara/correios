@@ -16,8 +16,6 @@ use GuzzleHttp\Exception\GuzzleException;
 
 abstract class Cep
 {
-
-
     /**
      * @param $cep
      * @return mixed
@@ -26,19 +24,21 @@ abstract class Cep
     static public function find($cep)
     {
         if (!preg_match('/\d{8}|^\d{5}-\d{3}$/m', $cep) || empty($cep)) {
-            throw new \Exception("CEP informado é inváldo");
+            throw new \Exception("CEP entered is invalid", 101);
         }
 
         $http     = new Client();
-        $endpoint = sprintf('https://viacep.com.br/ws/%d/json', trim(str_replace("-", "", $cep)));
-        $response = $http->request("GET", $endpoint, [
-            'verify' => false,
-        ]);
+        $endpoint = sprintf('https://viacep.com.br/ws/%s/json', trim(str_replace("-", "", $cep)));
+        $response = $http->request("GET", $endpoint, ['verify' => false]);
 
         if ($response->getStatusCode() == 200) {
-            return json_decode($response->getBody()->getContents(), true);
+            $contents = json_decode($response->getBody()->getContents(), true);
+            if (!empty($contents['erro'])) {
+                throw new \Exception("Invalid CEP", 102);
+            }
+            return $contents;
         } else {
-            throw new \Exception("Serviço indisponível no momento");
+            throw new \Exception("Service currently unavailable", 103);
         }
     }
 
