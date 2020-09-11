@@ -7,7 +7,7 @@ Esté projeto fornece uma maneira rápida e fácil, para usar alguns serviços d
 
 ### Pré-requisitos
 
-- PHP >= 7.2
+- PHP >= 5.6
 - Composer
 
 ### Instalação

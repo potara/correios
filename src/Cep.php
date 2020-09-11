@@ -24,7 +24,7 @@ class Cep
      * @return array
      * @throws GuzzleException
      */
-    public function __invoke($cep, $type = 'json'):array
+    public function __invoke($cep, $type = 'json')
     {
 
         if (!preg_match('/\d{8}|^\d{5}-\d{3}$/m', $cep) || empty($cep)) {
