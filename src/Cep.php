@@ -14,29 +14,29 @@ namespace Potara\Correios;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\GuzzleException;
 
-class Cep
+abstract class Cep
 {
-    const ENDPOTIN = 'https://viacep.com.br/ws/%d/%s';
+
 
     /**
      * @param $cep
-     * @param string $type
-     * @return array
+     * @return mixed
      * @throws GuzzleException
      */
-    public function __invoke($cep, $type = 'json')
+    static public function find($cep)
     {
-
         if (!preg_match('/\d{8}|^\d{5}-\d{3}$/m', $cep) || empty($cep)) {
             throw new \Exception("CEP informado é inváldo");
         }
-        $cep = trim(str_replace("-", "", $cep));
 
         $http     = new Client();
-        $response = $http->request("POST", sprintf(ENDPOTIN, $cep, $type));
+        $endpoint = sprintf('https://viacep.com.br/ws/%d/json', trim(str_replace("-", "", $cep)));
+        $response = $http->request("GET", $endpoint, [
+            'verify' => false,
+        ]);
 
         if ($response->getStatusCode() == 200) {
-            return $response->getBody()->getContents();
+            return json_decode($response->getBody()->getContents(), true);
         } else {
             throw new \Exception("Serviço indisponível no momento");
         }
