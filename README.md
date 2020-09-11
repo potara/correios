@@ -1,4 +1,16 @@
 # Potara - Correios
+[![Latest Stable Version](https://poser.pugx.org/potara/correios/v)](//packagist.org/packages/potara/correios)
+[![Total Downloads](https://poser.pugx.org/potara/correios/downloads)](//packagist.org/packages/potara/correios)
+[![License](https://poser.pugx.org/potara/correios/license)](//packagist.org/packages/potara/correios)
+
+| [master][master] | [develop][develop] |
+|:----------------:|:----------:|
+| [![Build Status](https://travis-ci.com/potara/correios.svg?branch=master)](https://travis-ci.com/potara/correios) | [![Build Status](https://travis-ci.com/potara/correios.svg?branch=develop)](https://travis-ci.com/potara/correios) |
+| [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fpotara%2Fcorreios.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fpotara%2Fcorreios?ref=badge_shield) | [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fpotara%2Fcorreios.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fpotara%2Fcorreios?ref=badge_shield) |
+
+
+
+
 Esté projeto fornece uma maneira rápida e fácil, para usar alguns serviços dos correios.
 
 - Consulta de endereço pelo CEP ( dados fornecidos por https://viacep.com.br/)
