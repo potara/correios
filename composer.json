@@ -9,7 +9,6 @@
     "api",
     "frete",
     "cep",
-    "endereço",
     "endereco",
     "preco"
   ],
@@ -42,7 +41,6 @@
     }
   },
   "require-dev": {
-    "phpunit/phpunit": "5.7.*",
-    "php-coveralls/php-coveralls": "^2.2"
+    "phpunit/phpunit": "5.7.*"
   }
 }
