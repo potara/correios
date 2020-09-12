@@ -7,20 +7,21 @@ php:
   - 7.2
 
 install:
-  - composer self-update
-  - composer install
+  - travis_retry composer self-update
+  - travis_retry composer install --no-interaction --no-suggest
 
-env:
-  matrix:
-    - COMPOSER_FLAGS="--prefer-lowest"
-    - COMPOSER_FLAGS=""
 
 before_script:
-  - mkdir -p build/logs
   - "curl -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/fossas/fossa-cli/master/install.sh | sudo bash"
 
 script:
-  - vendor/bin/phpunit --coverage-clover build/logs/clover.xml
+  - vendor/bin/phpunit --coverage-clover coverage.xml
 
 after_success:
-  - travis_retry php vendor/bin/php-coveralls
+  - bash <(curl -s https://codecov.io/bash)
+
+# Monitor only these branches
+branches:
+  only:
+    - master
+    - develop
