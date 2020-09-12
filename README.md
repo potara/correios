@@ -32,10 +32,6 @@ $ composer require potara/correios
 
 * **Bruno Lima** - [GitHub](https://github.com/brunolimame)
 
-## Licença
-
-Este projeto é regido pela licença MIT - consulte o arquivo [LICENSE](LICENSE) para mais detalhes
-
 ## Aporiadores
 
 [![JetBrains](https://github.com/potara/sponsors/blob/master/jetbrains.png?raw=true "JetBrains")](https://www.jetbrains.com/?from=potara.org)
@@ -43,3 +39,7 @@ Este projeto é regido pela licença MIT - consulte o arquivo [LICENSE](LICENSE)
 ## Segurança
 
 Se você descobrir problemas de segurança, envie um email para eu@brunolima.me.
+
+## Licença
+
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fpotara%2Fcorreios.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fpotara%2Fcorreios?ref=badge_large)
