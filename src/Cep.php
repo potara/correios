@@ -27,9 +27,8 @@ abstract class Cep
             throw new \Exception("CEP entered is invalid", 101);
         }
 
-        $http     = new Client();
         $endpoint = sprintf('https://viacep.com.br/ws/%s/json', trim(str_replace("-", "", $cep)));
-        $response = $http->request("GET", $endpoint, ['verify' => false]);
+        $response = (new Client())->request("GET", $endpoint, ['verify' => false]);
 
         if ($response->getStatusCode() == 200) {
             $contents = json_decode($response->getBody()->getContents(), true);

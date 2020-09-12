@@ -17,4 +17,9 @@
     <php>
         <env name="SYMFONY_DEPRECATIONS_HELPER" value="disabled" />
     </php>
+    <filter>
+        <whitelist>
+            <directory suffix=".php">./src</directory>
+        </whitelist>
+    </filter>
 </phpunit>
