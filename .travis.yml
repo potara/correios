@@ -10,18 +10,12 @@ install:
   - travis_retry composer self-update
   - travis_retry composer install --no-interaction --no-suggest
 
-
 before_script:
+  - composer require --dev satooshi/php-coveralls
   - "curl -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/fossas/fossa-cli/master/install.sh | sudo bash"
 
 script:
-  - vendor/bin/phpunit --coverage-clover coverage.xml
+  - ./vendor/bin/phpunit --coverage-clover ./tests/logs/clover.xml
 
-after_success:
-  - bash <(curl -s https://codecov.io/bash)
-
-# Monitor only these branches
-branches:
-  only:
-    - master
-    - develop
+after_script:
+  - php vendor/bin/coveralls -v
